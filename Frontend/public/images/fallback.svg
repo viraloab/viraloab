@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="300" viewBox="0 0 400 300">
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e293b" />
+      <stop offset="100%" stop-color="#0f172a" />
+    </linearGradient>
+    <linearGradient id="iconGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#6366f1" />
+      <stop offset="100%" stop-color="#7c3aed" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="400" height="300" fill="url(#bgGradient)" />
+  
+  <!-- Image placeholder icon -->
+  <rect x="125" y="75" width="150" height="100" rx="8" fill="none" stroke="#64748b" stroke-width="2" stroke-dasharray="8 4" />
+  <path d="M175 105 L155 135 L175 125 L195 145 L225 105 Z" fill="#64748b" opacity="0.6" />
+  <circle cx="165" cy="95" r="8" fill="#64748b" opacity="0.8" />
+  
+  <!-- Message -->
+  <text x="200" y="210" font-family="Arial, sans-serif" font-size="16" fill="white" text-anchor="middle">Image could not be loaded</text>
+  <text x="200" y="235" font-family="Arial, sans-serif" font-size="14" fill="#94a3b8" text-anchor="middle">You appear to be offline</text>
+  
+  <!-- Logo -->
+  <g transform="translate(185, 40)">
+    <circle cx="15" cy="15" r="15" fill="url(#iconGradient)" />
+    <path d="M10 15 L15 10 L20 15 L15 20 Z" fill="white" />
+  </g>
+</svg> 
