@@ -1,0 +1,203 @@
+/** @type {import('tailwindcss').Config} */
+export default {
+  content: [
+    "./index.html",
+    "./src/**/*.{js,ts,jsx,tsx}",
+  ],
+  theme: {
+    extend: {
+      transitionProperty: {
+        'transform': 'transform',
+      },
+      transformOrigin: {
+        'center': 'center',
+      },
+      rotate: {
+        '-180': '-180deg',
+        '-90': '-90deg',
+        '-45': '-45deg',
+        '0': '0',
+        '45': '45deg',
+        '90': '90deg',
+        '180': '180deg',
+        '270': '270deg',
+        '360': '360deg',
+      },
+      scale: {
+        '102': '1.02',
+        '105': '1.05',
+        '110': '1.1',
+      },
+      animation: {
+        'spin-slow': 'spin 20s linear infinite',
+        'float': 'float 3s ease-in-out infinite',
+        'float-slow': 'float 6s ease-in-out infinite',
+        'slide-up': 'slideUp 0.5s ease-out',
+        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+        'morphing': 'morphing 15s ease-in-out infinite',
+        'bounce-slow': 'bounce 3s infinite',
+        'shimmer': 'shimmer 2s linear infinite',
+        'wave': 'wave 10s linear infinite',
+        'appear': 'appear 0.8s forwards',
+        'appear-duration': 'appear 0.8s forwards',
+        'pulse-opacity': 'pulseOpacity 2s ease-in-out infinite',
+        'slideInUp': 'slideInUp 0.8s ease-out forwards',
+        'fadeIn': 'fadeIn 0.3s ease-in forwards',
+        'draw': 'draw 2s ease-in-out forwards',
+        'pulse-wave': 'pulse-wave 1.5s ease-in-out infinite',
+      },
+      keyframes: {
+        float: {
+          '0%, 100%': { transform: 'translateY(0)' },
+          '50%': { transform: 'translateY(-10px)' },
+        },
+        slideUp: {
+          '0%': { transform: 'translateY(100%)', opacity: '0' },
+          '100%': { transform: 'translateY(0)', opacity: '1' },
+        },
+        morphing: {
+          '0%': { borderRadius: '60% 40% 30% 70%/60% 30% 70% 40%' },
+          '25%': { borderRadius: '30% 60% 70% 40%/50% 60% 30% 60%' },
+          '50%': { borderRadius: '40% 60% 30% 70%/60% 30% 70% 40%' },
+          '75%': { borderRadius: '60% 40% 70% 30%/40% 70% 30% 60%' },
+          '100%': { borderRadius: '60% 40% 30% 70%/60% 30% 70% 40%' },
+        },
+        shimmer: {
+          '0%': { backgroundPosition: '-500px 0' },
+          '100%': { backgroundPosition: '500px 0' },
+        },
+        wave: {
+          '0%, 100%': { transform: 'translateY(0)' },
+          '50%': { transform: 'translateY(20px)' },
+        },
+        appear: {
+          '0%': { opacity: '0' },
+          '100%': { opacity: '1' },
+        },
+        pulseOpacity: {
+          '0%, 100%': { opacity: '0.3' },
+          '50%': { opacity: '1' },
+        },
+        slideInUp: {
+          '0%': { transform: 'translateY(30px)', opacity: '0' },
+          '100%': { transform: 'translateY(0)', opacity: '1' }
+        },
+        fadeIn: {
+          '0%': { opacity: '0' },
+          '100%': { opacity: '1' }
+        },
+        draw: {
+          '0%': { strokeDashoffset: '100' },
+          '100%': { strokeDashoffset: '0' }
+        }
+      },
+      perspective: {
+        'none': 'none',
+        '500': '500px',
+        '1000': '1000px',
+        '2000': '2000px',
+      },
+      rotateY: {
+        '-180': '-180deg',
+        '-90': '-90deg',
+        '-45': '-45deg',
+        '0': '0',
+        '45': '45deg',
+        '90': '90deg',
+        '180': '180deg',
+      },
+      backdropFilter: {
+        'none': 'none',
+        'blur': 'blur(4px)',
+        'blur-md': 'blur(8px)',
+        'blur-lg': 'blur(12px)',
+      },
+      colors: {
+        primary: {
+          50: '#f0f9ff',
+          100: '#e0f2fe',
+          200: '#bae6fd',
+          300: '#7dd3fc',
+          400: '#38bdf8',
+          500: '#0ea5e9',
+          600: '#0284c7',
+          700: '#0369a1',
+          800: '#075985',
+          900: '#0c4a6e',
+        },
+        secondary: {
+          50: '#fdf4ff',
+          100: '#fbe8ff',
+          200: '#f5d0fe',
+          300: '#f0abfc',
+          400: '#e879f9',
+          500: '#d946ef',
+          600: '#c026d3',
+          700: '#a21caf',
+          800: '#86198f',
+          900: '#701a75',
+        },
+        accent: {
+          50: '#fff7ed',
+          100: '#ffedd5',
+          200: '#fed7aa',
+          300: '#fdba74',
+          400: '#fb923c',
+          500: '#f97316',
+          600: '#ea580c',
+          700: '#c2410c',
+          800: '#9a3412',
+          900: '#7c2d12',
+        },
+        dark: {
+          50: '#f8fafc',
+          100: '#f1f5f9',
+          200: '#e2e8f0',
+          300: '#cbd5e1',
+          400: '#94a3b8',
+          500: '#64748b',
+          600: '#475569',
+          700: '#334155',
+          800: '#1e293b',
+          900: '#0f172a',
+          950: '#020617',
+        },
+      },
+      backgroundImage: {
+        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+        'gradient-conic': 'conic-gradient(from 0deg at 50% 50%, var(--tw-gradient-stops))',
+        'noise': "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E\")",
+      },
+      boxShadow: {
+        'soft': '0 5px 15px rgba(0, 0, 0, 0.05)',
+        'neon': '0 0 10px rgba(255, 255, 255, 0.2), 0 0 20px rgba(255, 255, 255, 0.15), 0 0 30px rgba(255, 255, 255, 0.1)',
+        'card': '0 10px 30px -5px rgba(0, 0, 0, 0.1)',
+        'inner-sm': 'inset 0 1px 3px 0 rgba(0, 0, 0, 0.05)',
+        'inner-md': 'inset 0 2px 5px 0 rgba(0, 0, 0, 0.1)',
+        'glow-md': '0 0 10px rgba(14, 165, 233, 0.4)',
+        'glow-sm': '0 0 5px rgba(14, 165, 233, 0.3)',
+      },
+      borderRadius: {
+        'blob': '60% 40% 30% 70% / 60% 30% 70% 40%',
+      },
+      fontFamily: {
+        sans: ['Inter', 'sans-serif'],
+        display: ['Plus Jakarta Sans', 'sans-serif'],
+      },
+      gridTemplateColumns: {
+        'auto-fit': 'repeat(auto-fit, minmax(250px, 1fr))',
+      },
+    },
+    container: {
+      center: true,
+      padding: {
+        DEFAULT: '1rem',
+        sm: '2rem',
+        lg: '4rem',
+        xl: '5rem',
+        '2xl': '6rem',
+      },
+    },
+  },
+  plugins: [],
+}
