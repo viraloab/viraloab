@@ -3,7 +3,7 @@
 // Get the API URL from environment variables or use a fallback
 // Try multiple sources for the API URL
 import axios from 'axios';
-const API_URL = "http://localhost:8080/v1/notification"
+const API_URL = import.meta.env.VITE_API_URL;
 
 // Remove trailing slash if present
 const BASE_API_URL = API_URL.endsWith("/") ? API_URL.slice(0, -1) : API_URL;
