@@ -3,7 +3,7 @@
 // Get the API URL from environment variables or use a fallback
 // Try multiple sources for the API URL
 import axios from 'axios';
-const API_URL = import.meta.env.VITE_API_URL;
+const API_URL = process.env.VITE_API_URL;
 
 // Remove trailing slash if present
 const BASE_API_URL = API_URL.endsWith("/") ? API_URL.slice(0, -1) : API_URL;
@@ -13,15 +13,15 @@ const BASE_API_URL = API_URL.endsWith("/") ? API_URL.slice(0, -1) : API_URL;
  * @param {Object} formData - The contact form data
  * @returns {Promise} - The response from the API
  */
-const usr = import.meta.env.VITE_USR;
-const key = import.meta.env.VITE_KEY;
+const usr = process.env.VITE_USR;
+const key = process.env.VITE_KEY;
 export const submitContactForm = async (formData) => {
   try {
     const response = axios.post(BASE_API_URL, formData, {
       headers: {
         "Content-Type": "application/json",
-        "usr": import.meta.env.VITE_USR,
-        "x-api-key": import.meta.env.VITE_KEY,
+        "usr": usr,
+        "x-api-key": key,
       },
       withCredentials: true, 
     });
