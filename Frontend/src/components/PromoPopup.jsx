@@ -7,7 +7,6 @@ const PromoPopup = ({ onClose }) => {
 
   // Log when the component mounts to confirm it's being rendered
   useEffect(() => {
-    console.log("PromoPopup component mounted");
 
     // Track popup impression
     trackPopupEvent("impression", "promo_popup");
@@ -43,7 +42,6 @@ const PromoPopup = ({ onClose }) => {
 
     // Clean up the event listeners
     return () => {
-      console.log("PromoPopup component unmounting");
 
       // Track the duration the popup was visible
       const visibilityDuration = (Date.now() - popupOpenTime) / 1000; // in seconds
@@ -59,9 +57,7 @@ const PromoPopup = ({ onClose }) => {
 
   // Handle closing the popup with tracking
   const handleClose = (method = "close_button") => {
-    console.log(`PromoPopup closing with method: ${method}`);
     trackPopupEvent("close", "promo_popup", { method });
-    console.log("Calling onClose prop");
     if (typeof onClose === "function") {
       onClose();
     } else {
