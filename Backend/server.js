@@ -64,7 +64,7 @@ const Contact = mongoose.models.Contact || mongoose.model('Contact', new mongoos
   ip: String
 }));
 
-// Contact Form API
+// API endpoint
 app.post('/api/contact', async (req, res) => {
   try {
     const { name, email, message, company, phone } = req.body;
@@ -98,62 +98,58 @@ app.post('/api/contact', async (req, res) => {
       }
     }
 
-    // Admin email
+    // Admin Notification Email
     await transporter.sendMail({
-      from: `"Viraloab" <${process.env.SMTP_USER}>`,
+      from: `"Viraloab Contact" <${process.env.SMTP_USER}>`,
       to: 'viraloabofficial@gmail.com',
       subject: `📥 New Contact Submission from ${name}`,
       html: `
-        <div style="font-family:'Segoe UI', sans-serif; background:#f5f5f5; padding:30px;">
-          <div style="max-width:600px; margin:auto; background:#fff; border-radius:12px; box-shadow:0 0 10px rgba(0,0,0,0.05); overflow:hidden;">
-            <div style="background:#d32f2f; color:#fff; text-align:center; padding:25px 20px;">
-              <h2 style="margin:0;">🚨 New Contact Submission</h2>
-            </div>
-            <div style="padding:25px; color:#333;">
-              <p><strong>👤 Name:</strong> ${name}</p>
-              <p><strong>📧 Email:</strong> <a href="mailto:${email}">${email}</a></p>
-              <p><strong>🏢 Company:</strong> ${company || 'N/A'}</p>
-              <p><strong>📱 Phone:</strong> ${phone || 'N/A'}</p>
-
-              <div style="margin-top:20px;">
-                <h3>📝 Message:</h3>
-                <div style="background:#fafafa; border-left:4px solid #d32f2f; padding:15px; border-radius:8px;">
-                  <p style="white-space:pre-line; margin:0;">${message.replace(/\n/g, '<br>')}</p>
-                </div>
+        <div style="font-family:'Segoe UI', sans-serif; background-color:#f9f9f9; padding:40px;">
+          <table style="width:100%; max-width:600px; margin:auto; background:#ffffff; border:1px solid #ddd; border-radius:8px; padding:20px;">
+            <tr><td style="text-align:center; font-size:20px; color:#d32f2f;"><strong>🚨 New Contact Submission</strong></td></tr>
+            <tr><td style="padding:15px 0;">
+              <strong>👤 Name:</strong> ${name}<br/>
+              <strong>📧 Email:</strong> <a href="mailto:${email}">${email}</a><br/>
+              <strong>🏢 Company:</strong> ${company || 'N/A'}<br/>
+              <strong>📱 Phone:</strong> ${phone || 'N/A'}
+            </td></tr>
+            <tr><td>
+              <strong>📝 Message:</strong><br/>
+              <div style="border-left:4px solid #d32f2f; padding:10px; margin-top:5px; background:#fefefe;">
+                <p style="margin:0; white-space:pre-line;">${message.replace(/\n/g, '<br>')}</p>
               </div>
-            </div>
-            <div style="background:#eee; text-align:center; padding:15px; font-size:13px; color:#777;">
-              © ${new Date().getFullYear()} Viraloab Admin Alert · 📍 IP: ${ip}
-            </div>
-          </div>
+            </td></tr>
+            <tr><td style="text-align:center; font-size:12px; color:#888; padding-top:20px;">
+              📍 IP: ${ip}<br/>
+              © ${new Date().getFullYear()} Viraloab Admin Alert
+            </td></tr>
+          </table>
         </div>
       `
     });
 
-    // Client confirmation email
+    // Client Confirmation Email
     try {
       await transporter.sendMail({
         from: `"Viraloab" <${process.env.SMTP_USER}>`,
         to: email,
         subject: `🤝 Thanks for reaching out to Viraloab, ${name}!`,
         html: `
-          <div style="font-family:'Segoe UI', sans-serif; background:#f5f5f5; padding:30px;">
-            <div style="max-width:600px; margin:auto; background:#ffffff; border-radius:12px; box-shadow:0 0 10px rgba(0,0,0,0.05); overflow:hidden;">
-              <div style="background:#1976d2; color:#fff; text-align:center; padding:25px 20px;">
-                <h2 style="margin:0;">🙌 Thank You, ${name}!</h2>
-              </div>
-              <div style="padding:25px; color:#333;">
+          <div style="font-family:'Segoe UI', sans-serif; background-color:#f9f9f9; padding:40px;">
+            <table style="width:100%; max-width:600px; margin:auto; background:#ffffff; border:1px solid #ccc; border-radius:8px; padding:20px;">
+              <tr><td style="text-align:center; font-size:22px; color:#1976d2;"><strong>🎉 Thank You, ${name}!</strong></td></tr>
+              <tr><td style="padding:20px 0; color:#333;">
                 <p>Hi <strong>${name}</strong>,</p>
                 <p>Thank you for reaching out to <strong>Viraloab</strong>! 💼</p>
-                <p>We've received your message and one of our team members will get back to you shortly. ⏳</p>
-                <p style="margin-top:20px;">In the meantime, feel free to explore more about us at <a href="https://viraloab.in" target="_blank" style="color:#1976d2;">viraloab.in</a>.</p>
-                <p style="margin-top:30px;">Cheers,<br>🌟 <strong>The Viraloab Team</strong></p>
-              </div>
-              <div style="background:#eeeeee; text-align:center; padding:15px; font-size:13px; color:#777;">
-                📬 This is an automated message. We'll get back to you soon!<br>
+                <p>We've received your message and our team will get back to you soon. ⏳</p>
+                <p style="margin-top:20px;">Explore more about us: <a href="https://viraloab.com" target="_blank" style="color:#1976d2;">viraloab.com</a></p>
+                <p style="margin-top:30px;">Cheers,<br/>🌟 <strong>The Viraloab Team</strong></p>
+              </td></tr>
+              <tr><td style="text-align:center; font-size:12px; color:#888; padding-top:20px;">
+                📬 This is an automated message. We’ll get in touch soon.<br/>
                 © ${new Date().getFullYear()} Viraloab. All rights reserved.
-              </div>
-            </div>
+              </td></tr>
+            </table>
           </div>
         `
       });
