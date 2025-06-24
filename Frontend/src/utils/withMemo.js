@@ -1,4 +1,4 @@
-import { memo } from 'react';
+import { memo } from "react";
 
 /**
  * Higher-order component that applies React.memo with custom comparison function
@@ -11,7 +11,7 @@ export const withMemo = (Component, compareProps = null) => {
   if (!compareProps) {
     return memo(Component);
   }
-  
+
   // Otherwise, use React.memo with the custom comparison function
   return memo(Component, compareProps);
 };
@@ -26,15 +26,17 @@ export const ignoreProps = (ignoredProps = []) => {
     // Create new objects without the ignored props
     const filteredPrevProps = { ...prevProps };
     const filteredNextProps = { ...nextProps };
-    
+
     // Remove ignored props from comparison
-    ignoredProps.forEach(propName => {
+    ignoredProps.forEach((propName) => {
       delete filteredPrevProps[propName];
       delete filteredNextProps[propName];
     });
-    
+
     // Deep compare the remaining props
-    return JSON.stringify(filteredPrevProps) === JSON.stringify(filteredNextProps);
+    return (
+      JSON.stringify(filteredPrevProps) === JSON.stringify(filteredNextProps)
+    );
   };
 };
 
@@ -46,10 +48,10 @@ export const ignoreProps = (ignoredProps = []) => {
 export const onlyCompareProps = (propsToCompare = []) => {
   return (prevProps, nextProps) => {
     // Compare only the specified props
-    return propsToCompare.every(propName => {
+    return propsToCompare.every((propName) => {
       return prevProps[propName] === nextProps[propName];
     });
   };
 };
 
-export default withMemo; 
+export default withMemo;

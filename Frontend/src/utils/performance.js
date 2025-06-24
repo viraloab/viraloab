@@ -9,16 +9,16 @@ export const debounce = (func, wait = 100, immediate = false) => {
   let timeout;
   return function executedFunction(...args) {
     const context = this;
-    
+
     const later = () => {
       timeout = null;
       if (!immediate) func.apply(context, args);
     };
-    
+
     const callNow = immediate && !timeout;
     clearTimeout(timeout);
     timeout = setTimeout(later, wait);
-    
+
     if (callNow) func.apply(context, args);
   };
 };
@@ -51,13 +51,15 @@ export const throttle = (func, limit = 100) => {
  */
 export const isInViewport = (element, offset = 0) => {
   if (!element) return false;
-  
+
   const rect = element.getBoundingClientRect();
-  
+
   return (
-    rect.top <= (window.innerHeight || document.documentElement.clientHeight) + offset &&
+    rect.top <=
+      (window.innerHeight || document.documentElement.clientHeight) + offset &&
     rect.bottom >= 0 - offset &&
-    rect.left <= (window.innerWidth || document.documentElement.clientWidth) + offset &&
+    rect.left <=
+      (window.innerWidth || document.documentElement.clientWidth) + offset &&
     rect.right >= 0 - offset
   );
 };
@@ -72,16 +74,16 @@ export const isInViewport = (element, offset = 0) => {
 export const createIntersectionObserver = (element, callback, options = {}) => {
   const defaultOptions = {
     root: null,
-    rootMargin: '0px',
+    rootMargin: "0px",
     threshold: 0.1,
-    ...options
+    ...options,
   };
-  
+
   const observer = new IntersectionObserver(callback, defaultOptions);
-  
+
   if (element) {
     observer.observe(element);
   }
-  
+
   return observer;
-}; 
+};

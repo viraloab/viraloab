@@ -182,7 +182,6 @@ const ContactForm = () => {
     };
 
     const socialLinks = [
-        { icon: <FaInstagram className="w-5 h-5" />, url: "#", label: "Instagram" },
         { icon: <FaTwitter className="w-5 h-5" />, url: "#", label: "Twitter" },
         { icon: <FaLinkedinIn className="w-5 h-5" />, url: "#", label: "LinkedIn" }
     ];
@@ -213,23 +212,10 @@ const ContactForm = () => {
             
             <div className="container mx-auto px-4 relative z-10">
                 <div className="text-center mb-16">
-                    <span className="inline-block px-4 py-1.5 mb-6 glass-card text-white text-sm rounded-full">
-                        Get In Touch
-                    </span>
                     <h2 className="text-4xl md:text-5xl font-display font-bold gradient-text mb-4">Let's Connect</h2>
                     <p className="text-gray-300 max-w-2xl mx-auto text-lg">
                         Ready to elevate your digital presence? Send us a message and let's create something amazing together.
                     </p>
-                    {window.location.hostname === 'localhost' && (
-                        <div className="mt-4 p-2 bg-blue-500/20 text-blue-300 rounded-lg inline-block">
-                            Development Mode: Using no-cors mode with /api
-                        </div>
-                    )}
-                    {formStatus.offline && (
-                        <div className="mt-4 p-2 bg-yellow-500/20 text-yellow-300 rounded-lg inline-block">
-                            You're currently offline. Your message will be sent when you're back online.
-                        </div>
-                    )}
                 </div>
                 
                 <div className="grid lg:grid-cols-5 gap-8 max-w-7xl mx-auto">
@@ -258,8 +244,8 @@ const ContactForm = () => {
                                     <div>
                                         <h4 className="text-lg font-semibold text-white">Address</h4>
                                         <p className="text-gray-300">
-                                            49, Alamarath Street, Palayajayakondam,<br />
-                                            Karur, Tamilnadu, 639102
+                                            No.645/18, 3rd Floor, Krishna Reddy Layout<br />
+                                            Arekere Bangalore - 560076
                                         </p>
                                     </div>
                                 </div>
@@ -271,7 +257,7 @@ const ContactForm = () => {
                                     <div>
                                         <h4 className="text-lg font-semibold text-white">Phone</h4>
                                         <a href="tel:+1234567890" className="text-gray-300 hover:text-accent-300 transition-colors">
-                                            +1 (234) 567-890
+                                            +91 9345148191
                                         </a>
                                     </div>
                                 </div>
@@ -342,7 +328,7 @@ const ContactForm = () => {
                                             onChange={handleChange}
                                             required
                                             style={inputStyle}
-                                            placeholder="John Doe"
+                                            placeholder="John"
                                         />
                                     </div>
                                     <div>
@@ -355,7 +341,7 @@ const ContactForm = () => {
                                             onChange={handleChange}
                                             required
                                             style={inputStyle}
-                                            placeholder="johndoe@example.com"
+                                            placeholder="abcd@example.com"
                                         />
                                     </div>
                                 </div>
@@ -380,7 +366,7 @@ const ContactForm = () => {
                                         value={formData.phone}
                                         onChange={handleChange}
                                         style={inputStyle}
-                                        placeholder="+1 (234) 567-890"
+                                        placeholder="+91 9876543210"
                                     />
                                 </div>
                                 <div>
