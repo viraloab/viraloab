@@ -5,9 +5,6 @@
 import axios from 'axios';
 const API_URL = process.env.VITE_API_URL;
 
-// Remove trailing slash if present
-const BASE_API_URL = API_URL.endsWith("/") ? API_URL.slice(0, -1) : API_URL;
-
 /**
  * Send a contact form submission to the backend
  * @param {Object} formData - The contact form data
@@ -17,7 +14,7 @@ const usr = process.env.VITE_USR;
 const key = process.env.VITE_KEY;
 export const submitContactForm = async (formData) => {
   try {
-    const response = axios.post(BASE_API_URL, formData, {
+    const response = axios.post(API_URL, formData, {
       headers: {
         "Content-Type": "application/json",
         "usr": usr,
