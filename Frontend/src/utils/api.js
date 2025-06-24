@@ -11,7 +11,6 @@ const API_URL =
 
 // Remove trailing slash if present
 const BASE_API_URL = API_URL.endsWith('/') ? API_URL.slice(0, -1) : API_URL;
-console.log('Using API URL:', BASE_API_URL); // Debug log
 
 /**
  * Send a contact form submission to the backend
