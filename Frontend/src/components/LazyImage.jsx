@@ -1,21 +1,21 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef } from "react";
 
-const LazyImage = ({ 
-  src, 
-  alt, 
-  className = '',
-  placeholderColor = '#1f2937',
-  blurDataURL = '',
+const LazyImage = ({
+  src,
+  alt,
+  className = "",
+  placeholderColor = "#1f2937",
+  blurDataURL = "",
   width,
   height,
   priority = false,
   onLoad = () => {},
-  ...props 
+  ...props
 }) => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [isInView, setIsInView] = useState(false);
   const imgRef = useRef(null);
-  
+
   // Handle image loaded event
   const handleImageLoaded = () => {
     setIsLoaded(true);
@@ -29,16 +29,19 @@ const LazyImage = ({
       return;
     }
 
-    const observer = new IntersectionObserver((entries) => {
-      const [entry] = entries;
-      if (entry.isIntersecting) {
-        setIsInView(true);
-        observer.disconnect();
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const [entry] = entries;
+        if (entry.isIntersecting) {
+          setIsInView(true);
+          observer.disconnect();
+        }
+      },
+      {
+        rootMargin: "200px", // Start loading when image is 200px from viewport
+        threshold: 0.1,
       }
-    }, {
-      rootMargin: '200px', // Start loading when image is 200px from viewport
-      threshold: 0.1
-    });
+    );
 
     const currentRef = imgRef.current;
     if (currentRef) {
@@ -53,23 +56,24 @@ const LazyImage = ({
   }, [priority]);
 
   // Predefined aspect ratio container if both width and height are provided
-  const aspectRatio = width && height ? { paddingBottom: `${(height / width) * 100}%` } : {};
+  const aspectRatio =
+    width && height ? { paddingBottom: `${(height / width) * 100}%` } : {};
 
   return (
-    <div 
+    <div
       ref={imgRef}
       className={`relative overflow-hidden ${className}`}
-      style={{ 
+      style={{
         backgroundColor: placeholderColor,
-        ...aspectRatio
+        ...aspectRatio,
       }}
     >
       {/* Blur-up placeholder */}
       {blurDataURL && !isLoaded && (
-        <div 
+        <div
           aria-hidden="true"
           className="absolute inset-0 bg-cover bg-center blur-md transition-opacity duration-300"
-          style={{ 
+          style={{
             backgroundImage: `url(${blurDataURL})`,
             opacity: isLoaded ? 0 : 0.5,
           }}
@@ -81,12 +85,14 @@ const LazyImage = ({
         <img
           src={src}
           alt={alt}
-          className={`w-full h-full ${isLoaded ? 'opacity-100' : 'opacity-0'} transition-opacity duration-500`}
-          style={{ 
-            width: width ? `${width}px` : '100%',
-            height: height ? `${height}px` : '100%',
-            objectFit: 'cover',
-            willChange: 'opacity'
+          className={`w-full h-full ${
+            isLoaded ? "opacity-100" : "opacity-0"
+          } transition-opacity duration-500`}
+          style={{
+            width: width ? `${width}px` : "100%",
+            height: height ? `${height}px` : "100%",
+            objectFit: "cover",
+            willChange: "opacity",
           }}
           onLoad={handleImageLoaded}
           {...props}
@@ -103,4 +109,4 @@ const LazyImage = ({
   );
 };
 
-export default LazyImage; 
+export default LazyImage;

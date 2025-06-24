@@ -6,43 +6,53 @@
 // Track key events on the site
 export const trackEvent = (eventName, eventProperties = {}) => {
   // Log to console in development
-  const isDev = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+  const isDev =
+    window.location.hostname === "localhost" ||
+    window.location.hostname === "127.0.0.1";
   if (isDev) {
-    console.log('ANALYTICS EVENT:', eventName, eventProperties);
+    console.log("ANALYTICS EVENT:", eventName, eventProperties);
   }
-  
+
   // In production, this would send data to an analytics service
   // Example: window.gtag('event', eventName, eventProperties);
-  
+
   // Store event in localStorage for debugging
   try {
-    const existingEvents = JSON.parse(localStorage.getItem('viraloab_analytics') || '[]');
+    const existingEvents = JSON.parse(
+      localStorage.getItem("viraloab_analytics") || "[]"
+    );
     const newEvent = {
       name: eventName,
       properties: eventProperties,
-      timestamp: new Date().toISOString()
+      timestamp: new Date().toISOString(),
     };
-    
+
     existingEvents.push(newEvent);
-    localStorage.setItem('viraloab_analytics', JSON.stringify(existingEvents.slice(-50))); // Keep last 50 events
+    localStorage.setItem(
+      "viraloab_analytics",
+      JSON.stringify(existingEvents.slice(-50))
+    ); // Keep last 50 events
   } catch (error) {
-    console.error('Error storing analytics event:', error);
+    console.error("Error storing analytics event:", error);
   }
 };
 
 // Track page views
 export const trackPageView = (pageName) => {
-  trackEvent('page_view', { page: pageName });
+  trackEvent("page_view", { page: pageName });
 };
 
 // Track popup interactions
 export const trackPopupEvent = (action, popupName) => {
-  trackEvent('popup_interaction', { action, popup_name: popupName });
+  trackEvent("popup_interaction", { action, popup_name: popupName });
 };
 
 // Track button clicks
 export const trackButtonClick = (buttonName, buttonLocation) => {
-  trackEvent('button_click', { button_name: buttonName, location: buttonLocation });
+  trackEvent("button_click", {
+    button_name: buttonName,
+    location: buttonLocation,
+  });
 };
 
 // Track form submissions
@@ -51,11 +61,11 @@ export const trackFormSubmission = (formName, formData = {}) => {
   const safeFormData = { ...formData };
   delete safeFormData.password;
   delete safeFormData.email;
-  
-  trackEvent('form_submission', { 
+
+  trackEvent("form_submission", {
     form_name: formName,
     has_email: !!formData.email,
-    fields_completed: Object.keys(formData).length
+    fields_completed: Object.keys(formData).length,
   });
 };
 
@@ -65,10 +75,10 @@ export const trackPerformance = () => {
     const timing = window.performance.timing;
     const pageLoadTime = timing.loadEventEnd - timing.navigationStart;
     const domReadyTime = timing.domComplete - timing.domLoading;
-    
-    trackEvent('performance_metrics', {
+
+    trackEvent("performance_metrics", {
       page_load_time_ms: pageLoadTime,
-      dom_ready_time_ms: domReadyTime
+      dom_ready_time_ms: domReadyTime,
     });
   }
 };
@@ -77,17 +87,17 @@ export const trackPerformance = () => {
 export const initAnalytics = () => {
   // Track initial page view
   trackPageView(window.location.pathname);
-  
+
   // Track performance after window load
-  window.addEventListener('load', () => {
+  window.addEventListener("load", () => {
     setTimeout(trackPerformance, 0);
   });
-  
+
   return {
     trackEvent,
     trackPageView,
     trackPopupEvent,
     trackButtonClick,
-    trackFormSubmission
+    trackFormSubmission,
   };
-}; 
+};
