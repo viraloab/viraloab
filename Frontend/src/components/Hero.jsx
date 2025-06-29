@@ -69,8 +69,8 @@ const Hero = () => {
 
           {/* Right Section */}
           <div className="relative w-full h-[250px] sm:h-[500px] lg:h-[600px] mx-auto">
-            <div className="absolute w-full h-full flex flex-col justify-center items-center animate-float z-10">
-              <div className="bg-gradient-to-br from-secondary-500 to-primary-500 w-24 h-24 sm:w-64 sm:h-64 lg:w-80 lg:h-80 rounded-full shadow-2xl blur-xl opacity-30 animate-pulse"></div>
+            <div className="relative w-full h-full flex flex-col justify-center items-center animate-float z-10">
+              <div className="absolute bg-gradient-to-br from-secondary-500 to-primary-500 w-24 h-24 sm:w-64 sm:h-64 lg:w-80 lg:h-80 rounded-full shadow-2xl blur-xl opacity-30 animate-pulse"></div>
 
               {/* Feature card only for larger screens */}
               <div className="sm:absolute sm:block bg-white/5 backdrop-blur-md p-6 rounded-xl shadow-xl text-center max-w-sm">
