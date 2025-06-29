@@ -182,8 +182,8 @@ const ContactForm = () => {
     };
 
     const socialLinks = [
-        { icon: <FaTwitter className="w-5 h-5" />, url: "#", label: "Twitter" },
-        { icon: <FaLinkedinIn className="w-5 h-5" />, url: "#", label: "LinkedIn" }
+        { icon: <FaInstagram className="w-5 h-5" />, url: "https://www.instagram.com/viraloab", label: "instagram" },
+        { icon: <FaLinkedinIn className="w-5 h-5" />, url: "https://www.linkedin.com/in/viraloab-ai-powered-digital-solutions-company-054742353", label: "LinkedIn" }
     ];
 
     // Add custom CSS to fix form input styling
@@ -268,6 +268,7 @@ const ContactForm = () => {
                                 <div className="flex space-x-4">
                                     {socialLinks.map((social, index) => (
                                         <a 
+                                            target='_blank'
                                             key={index} 
                                             href={social.url} 
                                             aria-label={social.label}

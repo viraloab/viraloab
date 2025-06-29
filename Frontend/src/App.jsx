@@ -206,14 +206,6 @@ function App() {
           <Suspense fallback={<SectionLoader />}>
             <Footer />
           </Suspense>
-
-          {showPrivacy && (
-            <PrivacyPolicyPopup onClose={() => closePrivacyPolicy(false)} />
-          )}
-
-          {"desktop" == getDeviceType() && showPromoPopup && (
-            <PromoPopup onClose={handleClosePromoPopup} />
-          )}
         </>
       }
     </Router>

@@ -29,6 +29,52 @@ const AboutUs = () => {
           label: "Email",
         },
       ],
+    },
+    {
+      name: "Nitesh J",
+      position: "Co-founder and CTO",
+      image: "/images/Nithesh.jpeg",
+      bio: "With a solid foundation from Top Tech Gaints, our CTO & Co-Founder brings deep technical leadership and strategic vision to the team. Backed by years of experience in building scalable systems and products, he specializes in the MERN stack, translating complex challenges into high-performing, user-focused solutions. His blend of enterprise-grade experience and startup agility fuels the innovation behind our technology roadmap and product evolution.",
+      social: [
+        {
+          icon: <FaLinkedin />,
+          url: "https://www.linkedin.com/in/niteshj14/",
+          label: "LinkedIn",
+        },
+        {
+          icon: <FaInstagram />,
+          url: "https://www.instagram.com/_mysticfallstimberwolves._/",
+          label: "Instagram",
+        },
+        {
+          icon: <FaEnvelope />,
+          mail: "mailto:jnitesh1463@gmail.com",
+          label: "Email",
+        },
+      ],
+    },
+    {
+      name: "Sabareeswaran Marutharaju",
+      position: "Chief Operating Officer (COO)",
+      image: "/images/Sabare.JPG",
+      bio: "Our Chief Operating Officer brings a wealth of experience from the IT industry, with a strong background in driving organizational efficiency through systematic design and process optimization. Known for exceptional leadership qualities and a strategic mindset, he has successfully led cross-functional teams and scaled operations across dynamic environments. With a track record of delivering industry-leading performance, he plays a critical role in aligning business goals with operational execution, ensuring consistent growth and innovation",
+      social: [
+        {
+          icon: <FaLinkedin />,
+          url: "https://www.linkedin.com/in/sabareeswaran-m-076196173/",
+          label: "LinkedIn",
+        },
+        {
+          icon: <FaInstagram />,
+          url: "https://www.instagram.com/_.this_is_sabare._/",
+          label: "Instagram",
+        },
+        {
+          icon: <FaEnvelope />,
+          mail: "mailto:sabareessn12@gmail.com",
+          label: "Email",
+        },
+      ],
     }
   ];
 
@@ -53,7 +99,7 @@ const AboutUs = () => {
             Our Story & Vision
           </h2>
           <p className="text-gray-300 max-w-10xl mx-auto text-lg text-center">
-            Founded in 2020, Viraloab has quickly established itself as a leader
+            Founded in 2024, Viraloab has quickly established itself as a leader
             in digital innovation and custom software development. Our mission
             is to help businesses harness the power of technology to achieve
             their goals and reach new heights. We believe that every business
@@ -74,17 +120,17 @@ const AboutUs = () => {
           Meet Our Pillars & Minds behinds the scenes
         </h3>
 
-        <div className="flex flex-wrap justify-center gap-8 max-w-6xl mx-auto px-4">
+        <div className="flex flex-wrap justify-center gap-5 max-w-30xl mx-auto px-4">
           {founders.map((founder, index) => (
             <div
               key={index}
-              className="glass-card w-full sm:w-[500px] rounded-2xl border border-white/10 overflow-hidden transform transition-all duration-300 hover:-translate-y-2 hover:shadow-glow-sm"
+              className="glass-card w-full sm:w-[350px] rounded-2xl border border-white/10 overflow-hidden transform transition-all duration-300 hover:-translate-y-2 hover:shadow-glow-sm"
             >
               {/* Image Section */}
               <div className="relative h-72 overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-to-t from-dark-900 via-dark-900/50 to-transparent z-10"></div>
 
-                <div className="w-full h-full flex items-center justify-center relative z-0">
+                <div className="w-450px h-full flex items-center justify-center relative z-0">
                   <img
                     src={founder.image}
                     alt={founder.name}
