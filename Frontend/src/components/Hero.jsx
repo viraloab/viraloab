@@ -1,11 +1,10 @@
-import React, { useEffect, useRef } from "react";
+import React, { useRef } from "react";
 import {
   FaArrowRight,
   FaRocket,
   FaChartLine,
   FaLightbulb,
 } from "react-icons/fa";
-import { throttle } from "../utils/performance";
 
 const Hero = () => {
   const heroRef = useRef(null);
@@ -24,38 +23,36 @@ const Hero = () => {
     >
       {/* Background shapes */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="morphing-shape w-[50vw] h-[50vw] -top-[10vw] -left-[10vw]"></div>
-        <div className="morphing-shape w-[60vw] h-[60vw] -bottom-[30vw] -right-[20vw] animation-delay-2000 from-secondary-600 to-primary-500"></div>
+        <div className="morphing-shape w-[60vw] h-[60vw] -top-[20vw] -left-[20vw] sm:w-[50vw] sm:h-[50vw]"></div>
+        <div className="morphing-shape w-[70vw] h-[70vw] -bottom-[40vw] -right-[30vw] animation-delay-2000 from-secondary-600 to-primary-500"></div>
         <div className="absolute inset-0 bg-dark-950/70 backdrop-blur-md"></div>
         <div className="noise-pattern"></div>
         <div className="grid-pattern"></div>
       </div>
 
       {/* Hero content */}
-      <div className="container mx-auto px-4 relative z-10 py-24">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+      <div className="container mx-auto px-4 relative z-10 py-12 sm:py-20">
+        <div className="flex flex-col-reverse sm:grid sm:grid-cols-2 gap-10 sm:gap-16 items-center">
           {/* Left Section */}
-          <div className="text-center lg:text-left">
-            <span className="inline-flex items-center px-5 py-2 rounded-full text-sm font-semibold bg-gradient-to-r from-accent-500 to-secondary-500 text-white mb-6 animate-fadeIn">
-              <span className="inline-block w-2 h-2 rounded-full bg-white mr-2 animate-ping"></span>
+          <div className="text-center sm:text-left">
+            <span className="inline-flex items-center px-4 py-1.5 rounded-full text-xs sm:text-sm font-semibold bg-gradient-to-r from-accent-500 to-secondary-500 text-white mb-4 animate-fadeIn">
+              <span className="inline-block w-1.5 h-1.5 rounded-full bg-white mr-2 animate-ping"></span>
               AI - Powered Digital Solutions
             </span>
 
-            <h1 className="text-5xl md:text-7xl font-display font-bold text-white leading-tight mb-6 animate-slideInUp">
+            <h1 className="text-2xl sm:text-5xl md:text-6xl font-display font-bold text-white leading-tight mb-3 animate-slideInUp">
               Empower Your
-              <span className="relative mx-2 gradient-text inline">
-                Digital
-              </span>
+              <span className="relative mx-1 gradient-text inline">Digital</span>
               Identity
             </h1>
 
-            <p className="text-lg md:text-xl text-gray-300 max-w-xl mb-10 animate-fadeIn delay-300">
-              Unlock powerful, responsive, and AI scalable digital solutions designed to fuel your business growth.
+            <p className="text-sm sm:text-lg text-gray-300 max-w-md mb-6 animate-fadeIn delay-300 mx-auto sm:mx-0">
+              Unlock powerful, responsive, and AI-scalable digital solutions designed to fuel your business growth.
             </p>
 
-            <div className="flex flex-wrap justify-center lg:justify-start gap-4 animate-fadeIn delay-500">
+            <div className="flex justify-center sm:justify-start animate-fadeIn delay-500">
               <button
-                className="neo-button group text-lg"
+                className="neo-button group text-sm sm:text-lg"
                 onClick={() => {
                   document.getElementById("contact").scrollIntoView({ behavior: "smooth" });
                 }}
@@ -71,10 +68,12 @@ const Hero = () => {
           </div>
 
           {/* Right Section */}
-          <div className="relative w-full h-[500px] lg:h-[600px] mx-auto">
+          <div className="relative w-full h-[250px] sm:h-[500px] lg:h-[600px] mx-auto">
             <div className="absolute w-full h-full flex flex-col justify-center items-center animate-float z-10">
-              <div className="bg-gradient-to-br from-secondary-500 to-primary-500 w-64 h-64 lg:w-80 lg:h-80 rounded-full shadow-2xl blur-xl opacity-30 animate-pulse"></div>
-              <div className="absolute bg-white/5 backdrop-blur-md p-6 rounded-xl shadow-xl text-center max-w-sm">
+              <div className="bg-gradient-to-br from-secondary-500 to-primary-500 w-24 h-24 sm:w-64 sm:h-64 lg:w-80 lg:h-80 rounded-full shadow-2xl blur-xl opacity-30 animate-pulse"></div>
+
+              {/* Feature card only for larger screens */}
+              <div className="sm:absolute sm:block bg-white/5 backdrop-blur-md p-6 rounded-xl shadow-xl text-center max-w-sm">
                 <h3 className="text-white font-semibold text-xl mb-2">Why Choose Us?</h3>
                 <ul className="text-gray-300 text-sm space-y-1">
                   {features.map((f, i) => (
@@ -85,19 +84,6 @@ const Hero = () => {
                 </ul>
               </div>
             </div>
-            {[...Array(10)].map((_, i) => (
-              <div
-                key={i}
-                className="absolute w-1 h-1 bg-white rounded-full"
-                style={{
-                  top: `${Math.random() * 100}%`,
-                  left: `${Math.random() * 100}%`,
-                  opacity: Math.random() * 0.4 + 0.3,
-                  animation: `float ${Math.random() * 2 + 2}s ease-in-out infinite`,
-                  animationDelay: `${Math.random()}s`,
-                }}
-              ></div>
-            ))}
           </div>
         </div>
       </div>
