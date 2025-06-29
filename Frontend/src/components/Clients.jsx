@@ -27,11 +27,11 @@ const Clients = () => {
         "Enhanced student enrollment by 42% through strategic digital marketing and virtual campus tour experiences.",
     },
     {
-      logo: "/images/aeroin_logo.jpg",
-      name: "Aeroin Spacetech Private Limited",
-      description: "Aerospace Technology",
+      logo: "/images/Hydro.svg",
+      name: "Hydromark",
+      description: "Hose Manufacturer",
       achievement:
-        "Developed a comprehensive brand identity and secured 3 major industry partnerships through targeted B2B marketing campaigns.",
+        "Hydromark achieved a 5% increase in sales by strengthening its digital brand identity. Through a focused website redesign that emphasized industrial reliability, product clarity, and brand consistency, Hydromark established stronger online trust and visibility.",
     },
     {
       logo: "/images/cocox_logo.jpeg",

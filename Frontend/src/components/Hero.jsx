@@ -20,80 +20,44 @@ const Hero = () => {
     <section
       id="home"
       ref={heroRef}
-      className="relative min-h-screen flex items-center overflow-hidden bg-dark-950"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-dark-900 via-dark-950 to-black"
     >
-      {/* Background gradient and shapes */}
+      {/* Background shapes */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="morphing-shape w-[55vw] h-[55vw] -top-[10vw] -left-[10vw]"></div>
+        <div className="morphing-shape w-[50vw] h-[50vw] -top-[10vw] -left-[10vw]"></div>
         <div className="morphing-shape w-[60vw] h-[60vw] -bottom-[30vw] -right-[20vw] animation-delay-2000 from-secondary-600 to-primary-500"></div>
-        <div className="absolute inset-0 bg-dark-950/60 backdrop-filter backdrop-blur-sm"></div>
+        <div className="absolute inset-0 bg-dark-950/70 backdrop-blur-md"></div>
         <div className="noise-pattern"></div>
+        <div className="grid-pattern"></div>
       </div>
 
-      {/* Grid background */}
-      <div className="absolute inset-0 grid-pattern"></div>
-
       {/* Hero content */}
-      <div className="container mx-auto px-4 relative z-10 py-20">
-        <div className="grid lg:grid-cols-5 gap-12 items-center">
-          {/* Text Content - 3 columns */}
-          <div className="lg:col-span-3 text-center lg:text-left">
-            <div className="inline-block">
-              <span className="inline-flex items-center px-4 py-1.5 rounded-full text-sm glass-card text-white mb-6">
-                <span className="inline-block w-2 h-2 rounded-full bg-accent-500 mr-2 animate-pulse"></span>
-                Innovating Digital Solutions
-              </span>
-            </div>
+      <div className="container mx-auto px-4 relative z-10 py-24">
+        <div className="grid lg:grid-cols-2 gap-16 items-center">
+          {/* Left Section */}
+          <div className="text-center lg:text-left">
+            <span className="inline-flex items-center px-5 py-2 rounded-full text-sm font-semibold bg-gradient-to-r from-accent-500 to-secondary-500 text-white mb-6 animate-fadeIn">
+              <span className="inline-block w-2 h-2 rounded-full bg-white mr-2 animate-ping"></span>
+              AI - Powered Digital Solutions
+            </span>
 
-            <h1 className="text-5xl md:text-7xl font-display font-bold text-white leading-tight mb-4">
-              Transform Your
-              <span className="relative mx-4">
-                <span className="gradient-text relative z-10">Digital</span>
-                <svg
-                  className="absolute -bottom-4 left-0 w-full h-3 text-accent-500"
-                  viewBox="0 0 100 15"
-                  preserveAspectRatio="none"
-                >
-                  <path
-                    d="M0,5 Q40,15 80,8 Q90,4 100,8"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="3"
-                  />
-                </svg>
+            <h1 className="text-5xl md:text-7xl font-display font-bold text-white leading-tight mb-6 animate-slideInUp">
+              Empower Your
+              <span className="relative mx-2 gradient-text inline">
+                Digital
               </span>
-              <br />
-              Presence
+              Identity
             </h1>
 
-            <p className="text-xl text-gray-300 mb-8 max-w-2xl opacity-0 animate-slideInUp animation-delay-200">
-              We create innovative digital solutions that help businesses thrive
-              in the modern world. Let's build something amazing together.
+            <p className="text-lg md:text-xl text-gray-300 max-w-xl mb-10 animate-fadeIn delay-300">
+              Unlock powerful, responsive, and AI scalable digital solutions designed to fuel your business growth.
             </p>
 
-            {/* Features List */}
-            <div className="grid grid-cols-3 gap-4 mb-10 opacity-0 animate-slideInUp animation-delay-300">
-              {features.map((feature, index) => (
-                <div
-                  key={index}
-                  className="group flex flex-col items-center lg:items-start p-4 rounded-xl glass-card hover:shadow-inner-md transition-all duration-300 hover:-translate-y-1"
-                >
-                  <div className="text-accent-500 text-2xl mb-2 group-hover:scale-110 transition-all duration-300">
-                    {feature.icon}
-                  </div>
-                  <span className="text-white text-sm">{feature.text}</span>
-                </div>
-              ))}
-            </div>
-
-            {/* CTA Buttons */}
-            <div className="flex justify-center lg:justify-start opacity-0 animate-slideInUp animation-delay-400">
+            <div className="flex flex-wrap justify-center lg:justify-start gap-4 animate-fadeIn delay-500">
               <button
-                className="neo-button group"
+                className="neo-button group text-lg"
                 onClick={() => {
-                  document
-                    .getElementById("contact")
-                    .scrollIntoView({ behavior: "smooth" });
+                  document.getElementById("contact").scrollIntoView({ behavior: "smooth" });
                 }}
               >
                 <span className="absolute inset-0 border border-white/10 rounded-full"></span>
@@ -106,49 +70,39 @@ const Hero = () => {
             </div>
           </div>
 
-          {/* 3D Visual area - 2 columns */}
-          <div className="lg:col-span-2 hidden lg:block">
-            <div className="relative h-[600px] perspective-1000">
-              {/* Floating card with parallax effect */}
-              <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 perspective-1000 w-full h-full">
-                <div className="relative card-3d w-full h-full max-w-md mx-auto">
-
-                  {/* Background decorative elements */}
-                  <div
-                    className="parallax-hero absolute w-40 h-40 bg-gradient-to-br from-secondary-500 to-primary-500 rounded-full opacity-20 blur-xl"
-                    data-speed="2"
-                    style={{ top: "10%", right: "5%" }}
-                  ></div>
-                  <div
-                    className="parallax-hero absolute w-60 h-60 bg-gradient-to-br from-accent-500 to-secondary-500 rounded-full opacity-20 blur-xl"
-                    data-speed="1.5"
-                    style={{ bottom: "10%", left: "0%" }}
-                  ></div>
-                </div>
+          {/* Right Section */}
+          <div className="relative w-full h-[500px] lg:h-[600px] mx-auto">
+            <div className="absolute w-full h-full flex flex-col justify-center items-center animate-float z-10">
+              <div className="bg-gradient-to-br from-secondary-500 to-primary-500 w-64 h-64 lg:w-80 lg:h-80 rounded-full shadow-2xl blur-xl opacity-30 animate-pulse"></div>
+              <div className="absolute bg-white/5 backdrop-blur-md p-6 rounded-xl shadow-xl text-center max-w-sm">
+                <h3 className="text-white font-semibold text-xl mb-2">Why Choose Us?</h3>
+                <ul className="text-gray-300 text-sm space-y-1">
+                  {features.map((f, i) => (
+                    <li key={i} className="flex items-center gap-2">
+                      <span className="text-accent-500">{f.icon}</span> {f.text}
+                    </li>
+                  ))}
+                </ul>
               </div>
-
-              {/* Floating particles */}
-              {[...Array(12)].map((_, i) => (
-                <div
-                  key={i}
-                  className="absolute w-1 h-1 bg-white rounded-full"
-                  style={{
-                    top: `${Math.random() * 100}%`,
-                    left: `${Math.random() * 100}%`,
-                    opacity: Math.random() * 0.5 + 0.3,
-                    animation: `float ${
-                      Math.random() * 2 + 2
-                    }s ease-in-out infinite`,
-                    animationDelay: `${Math.random() * 2}s`,
-                  }}
-                ></div>
-              ))}
             </div>
+            {[...Array(10)].map((_, i) => (
+              <div
+                key={i}
+                className="absolute w-1 h-1 bg-white rounded-full"
+                style={{
+                  top: `${Math.random() * 100}%`,
+                  left: `${Math.random() * 100}%`,
+                  opacity: Math.random() * 0.4 + 0.3,
+                  animation: `float ${Math.random() * 2 + 2}s ease-in-out infinite`,
+                  animationDelay: `${Math.random()}s`,
+                }}
+              ></div>
+            ))}
           </div>
         </div>
       </div>
 
-      {/* Bottom wave design */}
+      {/* Bottom wave */}
       <div className="absolute bottom-0 left-0 w-full">
         <svg
           className="w-full text-dark-900 h-auto"
