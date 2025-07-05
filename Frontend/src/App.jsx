@@ -7,11 +7,9 @@ import {
 } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
-import SectionConnector from "./components/SectionConnector";
-import PromoPopup from "./components/PromoPopup";
 import { initAnalytics } from "./utils/analytics";
 import { initPrefetching } from "./utils/prefetch";
-import PrivacyPolicyPopup from "./components/PrivacyPolicy";
+import Sitemap from "./components/SiteMap";
 
 // Lazy load components to improve initial page load performance
 const Services = lazy(() => import("./components/Services"));
@@ -93,41 +91,27 @@ const HomePage = () => {
       <section id="home">
         <Hero />
       </section>
-
-      <SectionConnector variant="wave" />
-
       <div className="relative">
         <section id="services" className="reveal">
           <Suspense fallback={<SectionLoader />}>
             <Services />
           </Suspense>
         </section>
-
-        <SectionConnector variant="tech" />
-
         <section id="howwework" className="reveal">
           <Suspense fallback={<SectionLoader />}>
             <HowWeWork />
           </Suspense>
         </section>
-
-        <SectionConnector variant="dots" />
-
         <section id="clients" className="reveal">
           <Suspense fallback={<SectionLoader />}>
             <Clients />
           </Suspense>
         </section>
-
-        <SectionConnector variant="wave" />
         <section id="aboutUs" className="reveal">
           <Suspense fallback={<SectionLoader />}>
             <AboutUs />
           </Suspense>
         </section>
-
-        <SectionConnector variant="tech" />
-
         <section id="contact" className="reveal">
           <Suspense fallback={<SectionLoader />}>
             <ContactForm />
@@ -152,8 +136,6 @@ const ScrollToTop = () => {
 };
 
 function App() {
-  const [showPromoPopup, setShowPromoPopup] = useState(false);
-  const [showPrivacy, setShowPrivacy] = useState(true);
 
   // Initialize analytics and prefetching
   useEffect(() => {
@@ -176,24 +158,6 @@ function App() {
     });
   }, []);
 
-  // Function to handle closing the popup
-  const handleClosePromoPopup = () => {
-    setShowPromoPopup(false);
-  };
-
-  // Function to determine device type based on window width
-  function getDeviceType() {
-    const width = window.innerWidth;
-    if (width < 768) return "mobile";
-    if (width >= 768 && width < 1024) return "tablet";
-    return "desktop";
-  }
-
-  function closePrivacyPolicy(policy) {
-    setShowPrivacy(policy);
-    setShowPromoPopup(true);
-  }
-
   return (
     <Router>
       {
@@ -202,6 +166,7 @@ function App() {
           <ScrollToTop />
           <Routes>
             <Route path="/" element={<HomePage />} />
+            <Route path="/sitemap.xml" element={<Sitemap />} />
           </Routes>
           <Suspense fallback={<SectionLoader />}>
             <Footer />

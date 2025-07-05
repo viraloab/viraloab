@@ -10,8 +10,8 @@ const AboutUs = () => {
     {
       name: "Logeshwaran Devendhiran",
       position: "Founder & CEO",
-      image: "/images/CEO.jpeg",
-      bio: "The CEO & Founder of viraloab, began his entrepreneurial journey while in his final year of Computer Science Engineering. With a strong foundation in technology and over a year of hands-on experience in digital marketing, he brings a unique blend of technical expertise and marketing insight to the company. His vision is to bridge the gap between innovation and audience impact by crafting digital-first solutions that deliver measurable growth for modern businesses.",
+      image: "/images/CEO.jpg",
+      bio: "The CEO & Founder of viraloab, began his entrepreneurial journey while in his final year of Computer Science Engineering. With a strong foundation in technology and over a year of hands-on experience in digital marketing, he brings a unique blend of technical expertise and marketing insight to the company.",
       social: [
         {
           icon: <FaLinkedin />,
@@ -33,8 +33,8 @@ const AboutUs = () => {
     {
       name: "Nitesh J",
       position: "Co-founder and CTO",
-      image: "/images/Nithesh.jpeg",
-      bio: "With a solid foundation from Top Tech Gaints, our CTO & Co-Founder brings deep technical leadership and strategic vision to the team. Backed by years of experience in building scalable systems and products, he specializes in the MERN stack, translating complex challenges into high-performing, user-focused solutions. His blend of enterprise-grade experience and startup agility fuels the innovation behind our technology roadmap and product evolution.",
+      image: "/images/Nithesh.jpg",
+      bio: "With a solid foundation from Top Tech Gaints, our CTO & Co-Founder brings deep technical leadership and strategic vision to the team. Backed by years of experience in building scalable systems and products, he specializes in the MERN stack, translating complex challenges into high-performing, user-focused solutions.",
       social: [
         {
           icon: <FaLinkedin />,
@@ -55,9 +55,9 @@ const AboutUs = () => {
     },
     {
       name: "Sabareeswaran Marutharaju",
-      position: "Chief Operating Officer (COO)",
-      image: "/images/Sabare.JPG",
-      bio: "Our Chief Operating Officer brings a wealth of experience from the IT industry, with a strong background in driving organizational efficiency through systematic design and process optimization. Known for exceptional leadership qualities and a strategic mindset, he has successfully led cross-functional teams and scaled operations across dynamic environments. With a track record of delivering industry-leading performance, he plays a critical role in aligning business goals with operational execution, ensuring consistent growth and innovation",
+      position: "Co-founder and COO",
+      image: "/images/Sabaree.jpg",
+      bio: "Our Chief Operating Officer brings a wealth of experience from the IT industry, with a strong background in driving organizational efficiency through systematic design and process optimization. Known for exceptional leadership qualities and a strategic mindset, he has successfully led cross-functional teams and scaled operations across dynamic environments.",
       social: [
         {
           icon: <FaLinkedin />,
@@ -127,8 +127,8 @@ const AboutUs = () => {
               className="glass-card w-full sm:w-[350px] rounded-2xl border border-white/10 overflow-hidden transform transition-all duration-300 hover:-translate-y-2 hover:shadow-glow-sm"
             >
               {/* Image Section */}
-              <div className="relative h-72 overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-t from-dark-900 via-dark-900/50 to-transparent z-10"></div>
+              <div className="relative h-70 overflow-hidden">
+                <div className="relative inset-0 bg-gradient-to-t from-dark-900 via-dark-900/50 to-transparent z-5"></div>
 
                 <div className="w-450px h-full flex items-center justify-center relative z-0">
                   <img
