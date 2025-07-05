@@ -9,7 +9,8 @@ import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import { initAnalytics } from "./utils/analytics";
 import { initPrefetching } from "./utils/prefetch";
-import Sitemap from "./components/SiteMap";
+import {Sitemap} from "./components/SiteMap";
+
 // Lazy load components to improve initial page load performance
 const Services = lazy(() => import("./components/Services"));
 const HowWeWork = lazy(() => import("./components/HowWeWork"));
