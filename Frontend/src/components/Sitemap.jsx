@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 
-const Sitemap = () => {
+const SiteMap = () => {
   useEffect(() => {
     // Set correct content type
     const meta = document.createElement("meta");
@@ -46,4 +46,4 @@ const Sitemap = () => {
   );
 };
 
-export default Sitemap;
+export default SiteMap;
