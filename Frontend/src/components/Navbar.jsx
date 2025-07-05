@@ -132,10 +132,7 @@ const Navbar = () => {
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-2">
             <div className="relative w-8 h-8">
-              <div className="absolute inset-0 bg-gradient-to-tr from-accent-500 to-secondary-500 rounded-full animate-pulse-slow"></div>
-              <div className="absolute inset-1 bg-dark-900 rounded-full flex items-center justify-center">
-                <span className="text-xs font-bold text-white">V</span>
-              </div>
+              <img src="./images/V.svg" alt="viraloab_logo" className="max-w-full max-h-full object-contain filter brightness-100 opacity-100 group-hover:opacity-100 transition-all"></img>
             </div>
             <div className="flex flex-col">
               <span

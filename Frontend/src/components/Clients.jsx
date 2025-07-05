@@ -24,7 +24,7 @@ const Clients = () => {
       name: "LPU",
       description: "Education",
       achievement:
-        "Enhanced student enrollment by 42% through strategic digital marketing and virtual campus tour experiences.",
+        "Enhanced student enrollment by 42% from TamilNadu through strategic digital marketing and virtual campus tour experiences.",
     },
     {
       logo: "/images/Hydro.svg",
