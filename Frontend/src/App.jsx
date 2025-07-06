@@ -17,7 +17,6 @@ const Clients = lazy(() => import("./components/Clients"));
 const AboutUs = lazy(() => import("./components/AboutUs"));
 const ContactForm = lazy(() => import("./components/ContactForm"));
 const Footer = lazy(() => import("./components/Footer"));
-const xiteMap = lazy(() => import("./components/Xitemap"));
 
 // Simple loading component for lazy-loaded sections
 const SectionLoader = () => (
@@ -166,7 +165,6 @@ function App() {
           <ScrollToTop />
           <Routes>
             <Route path="/" element={<HomePage />} />
-            <Route path="/xitemap" element={<xiteMap />} />
           </Routes>
           <Suspense fallback={<SectionLoader />}>
             <Footer />
